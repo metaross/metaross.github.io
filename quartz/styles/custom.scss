@@ -1,32 +1,67 @@
 // Minimal Clean Theme for MetaRoss
+// Inspired by quartz.eilleeenz.com typography + patternlanguage.cc color palette
 // To rollback: just delete this file and push
+
+// Warm, soft color palette (overriding Quartz defaults)
+:root {
+  // Light mode - warm, soft colors like Pattern Language
+  --light: #fdfbf7;           // Warm off-white background
+  --lightgray: #e8e4dc;       // Soft gray borders
+  --gray: #a8a29e;            // Muted gray
+  --darkgray: #52504e;        // Soft dark text
+  --dark: #292524;            // Warm black for headings
+  --secondary: #78716c;       // Muted brown for secondary text
+  --tertiary: #a8a29e;        // Soft accent
+  --highlight: rgba(168, 162, 158, 0.15);
+}
+
+[saved-theme="dark"] {
+  // Dark mode - keep it soft and warm
+  --light: #1c1917;
+  --lightgray: #292524;
+  --gray: #78716c;
+  --darkgray: #d6d3d1;
+  --dark: #fafaf9;
+  --secondary: #a8a29e;
+  --tertiary: #78716c;
+  --highlight: rgba(168, 162, 158, 0.15);
+}
 
 // Hide graph view (meaningless with few pages)
 .graph {
   display: none !important;
 }
 
-// Cleaner, more readable typography
+// Clean, friendly typography (inspired by Eilleen's site)
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 17px;
+  color: var(--darkgray);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+  color: var(--dark);
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   margin-bottom: 0.5em;
+  font-weight: 650;
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.5em;
+  margin-top: 1.8em;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2em;
   margin-top: 1.5em;
 }
 
@@ -42,15 +77,21 @@ h2 {
   border: none;
 }
 
-// Clean links
+// Clean, subtle links
 a {
+  color: var(--dark);
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  transition: opacity 0.2s;
+  border-bottom: 1px solid var(--gray);
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.7;
+    border-bottom-color: var(--dark);
   }
+}
+
+// Internal links styling
+.internal-link {
+  color: var(--dark);
 }
 
 // Remove excessive padding
