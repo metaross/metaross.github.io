@@ -1,5 +1,6 @@
 ---
-title: Michael C Ross
+layout: page
+title: About
 ---
 
 # Hi, I'm Michael.
@@ -15,10 +16,4 @@ I'm fascinated by how we can build systems that amplify human capability without
 - Knowledge management systems that work the way humans think
 - Building tools that get out of your way
 
----
-
 This site is where I share notes, thoughts, and things I'm learning.
-
-<div class="build-info">
-Built: BUILD_TIMESTAMP_PLACEHOLDER
-</div>

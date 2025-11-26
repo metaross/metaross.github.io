@@ -1,4 +1,4 @@
-name: Deploy Quartz to GitHub Pages
+name: Deploy Jekyll to GitHub Pages
 
 on:
   push:
@@ -17,56 +17,32 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          fetch-depth: 0
+          ruby-version: '3.2'
+          bundler-cache: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
-      - name: Clone and setup Quartz
-        run: |
-          git clone https://github.com/jackyzha0/quartz.git quartz-build
-          cd quartz-build
-          npm ci
-
-      - name: Copy content and config
-        run: |
-          mkdir -p quartz-build/content
-          cp -r content/* quartz-build/content/ 2>/dev/null || echo "No content yet"
-
-          if [ -f quartz.config.ts ]; then
-            cp quartz.config.ts quartz-build/
-          fi
-
-          if [ -d quartz/styles ]; then
-            mkdir -p quartz-build/quartz/styles
-            cp -r quartz/styles/* quartz-build/quartz/styles/
-          fi
-
-      - name: Inject build timestamp
-        run: |
-          BUILD_TIME=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')
-          sed -i "s/BUILD_TIMESTAMP_PLACEHOLDER/$BUILD_TIME/g" quartz-build/content/index.md
-
-      - name: Build Quartz site
-        run: |
-          cd quartz-build
-          npx quartz build
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: quartz-build/public
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

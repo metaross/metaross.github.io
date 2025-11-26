@@ -1,0 +1,37 @@
+# Site settings
+title: Michael C Ross
+tagline: AI platform strategy and governance
+description: Thoughts on AI, systems thinking, and building tools that amplify human capability
+url: https://metaross.github.io
+baseurl: ""
+
+# Author
+author:
+  name: Michael C Ross
+  email: # your-email@example.com (optional)
+
+# Theme - Using Hyde via remote_theme
+remote_theme: poole/hyde
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Permalinks
+permalink: /:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - BUILD_SYSTEM_RESEARCH.md
+  - README.md
