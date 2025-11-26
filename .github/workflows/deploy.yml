@@ -1,4 +1,4 @@
-name: Deploy Jekyll to GitHub Pages
+name: Deploy Hugo to GitHub Pages
 
 on:
   push:
@@ -21,24 +21,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
-          bundler-cache: true
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
+      - name: Build with Hugo
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
   deploy:
     runs-on: ubuntu-latest

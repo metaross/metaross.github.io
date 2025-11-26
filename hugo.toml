@@ -1,0 +1,32 @@
+baseURL = 'https://metaross.github.io/'
+languageCode = 'en-us'
+title = 'Michael C Ross'
+theme = 'hugo-book'
+
+[params]
+  BookTheme = 'auto'
+  BookToC = true
+  BookRepo = 'https://github.com/metaross/metaross.github.io'
+  BookEditPath = 'edit/main'
+  BookDateFormat = 'January 2, 2006'
+  BookSearch = true
+  BookComments = false
+
+[menu]
+[[menu.before]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.after]]
+  name = "GitHub"
+  url = "https://github.com/metaross"
+  weight = 1
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
