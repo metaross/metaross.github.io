@@ -3,8 +3,16 @@ title: "About"
 type: docs
 ---
 
-# About
+# Michael C Ross
 
-This is a space for exploring ideas about AI platforms, systems thinking, and knowledge management.
+I write about AI platforms, systems thinking, and how we build tools that work with humans rather than around them.
 
-I work on helping organizations integrate AI thoughtfully and effectively into their workflows, focusing on practical utility over impressive demos.
+These are explorations, not pronouncements. Notes from the field of trying to make complex systems actually useful.
+
+## Background
+
+I work on AI platform strategy and governance, helping organizations thoughtfully integrate artificial intelligence into their workflows.
+
+## This Site
+
+A home for essays, articles, and writer's notes. Each piece stands alone.
