@@ -1,8 +1,7 @@
 ---
-title: "What a Wonderful World: Finding Shadow and Light"
+title: "What a Wonderful World: Finding Shadow and Light in Louis Armstrong's Masterpiece"
 date: 2025-11-25
 type: docs
-weight: 1
 ---
 
 The November wind off the Hudson cuts through my jacket as I step off the Weehawken ferry, headphones in, the world narrowed to Armstrong's gravelly voice and the rhythm of my footsteps on the pier.  *Trees of green, red roses too…* The morning commuters rush past—I'm walking slower than usual, letting the song unfold.  By the time I reach the office lobby, the final notes are fading: *And I think to myself, what a wonderful world…*
@@ -11,7 +10,7 @@ For over a year in 2023 and 2024, I had this as my alarm.  The song was beautifu
 
 -----
 
-### **The Song That Almost Wasn't**
+## **The Song That Almost Wasn't**
 
 August 16, 1967, around 2 a.m.  United Recording Studio in Las Vegas.  Louis Armstrong had just finished his midnight show at the Tropicana Hotel.  Arranger Tommy Goodman was working with songwriters Bob Thiele and George David Weiss when ABC Records president Larry Newton burst in.
 
@@ -21,7 +20,7 @@ This is the song that almost wasn't—saved only by producers who believed in it
 
 Across the Atlantic, however, the response was dramatically different.  In April 1968, "What a Wonderful World" topped the UK pop chart and became the biggest-selling single of 1968 in Britain , where it stayed at number one for four consecutive weeks.  It wasn't until 1988, when the song was featured in the film *Good Morning, Vietnam*, that American audiences finally embraced it—the reissue reached number 32 on the Billboard Hot 100.
 
-### **Between Two Fires: Louis Armstrong's America**
+## **Between Two Fires: Louis Armstrong's America**
 
 Louis Armstrong was born August 4, 1901, in a New Orleans neighborhood called "The Battlefield."  He had a fifth-grade education and dropped out to work.  On New Year's Eve 1912, he was arrested and sent to the Colored Waif's Home for Boys—juvenile detention that became the unlikely birthplace of one of music's greatest careers.  Under Peter Davis's tutelage, he learned cornet and became leader of the Waif's Home Brass Band.  In 1922, King Oliver sent for him to join his band in Chicago, launching him into the national jazz scene.  Armstrong's improvised solos transformed jazz from ensemble music into a soloist's art; by the 1920s, his Hot Five and Hot Seven recordings had revolutionized American music.
 
@@ -37,7 +36,7 @@ This is the man Thiele and Weiss wrote "What a Wonderful World" for in 1967.  Te
 
 He passed away in his sleep on July 6, 1971, a few months after his final engagement at the Waldorf-Astoria.  When he sang about a wonderful world, he knew exactly what world he was living in.
 
-### **The Songwriter and the Artist**
+## **The Songwriter and the Artist**
 
 The song was written in 1967 by Bob Thiele (under the pseudonym George Douglas) and George David Weiss, specifically composed with Louis Armstrong in mind.  Thiele explained their motivation: "In the mid-1960s during the deepening national traumas of the Kennedy assassination, Vietnam, racial strife, and turmoil everywhere, my co-writer George David Weiss and I had an idea to write a 'different' song specifically for Louis Armstrong" .
 
@@ -69,13 +68,13 @@ This is Armstrong at 66, with a failing heart, looking at the future he won't se
 
 -----
 
-### **Lovely Days and Diamond Skies**
+## **Lovely Days and Diamond Skies**
 
 1967 offered two paths to wonder.  Two weeks before Armstrong recorded this song, Pink Floyd released *The Piper at the Gates of Dawn*—Syd Barrett singing about gnomes named Grimble Gromble, the Beatles floating "Lucy in the Sky with Diamonds," the counterculture discovering LSD to "regain innocent vision" and strip away adult habits of seeing.  Armstrong didn't need acid to see trees of green as miraculous.  He just looked at his neighborhood in Corona, Queens.  When young people said, "Hey, Pops—what do you mean, what a wonderful world?" they were taking psychedelics to achieve what he'd already found through unaltered observation.  Diamond skies through chemistry, lovely days through attention.
 
 **Israel Kamakawiwoʻole's 1993 medley**, recorded after *Good Morning, Vietnam* reawakened American audiences to Armstrong's song, paired "What a Wonderful World" with "Over the Rainbow"—as if to say: the wonderful world and the place we dream of are the same place, if we'd just look.
 
-### **Sacred Shadows**
+## **Sacred Shadows**
 
 Bob Thiele produced *A Love Supreme* two years before this—Coltrane's spiritual jazz as prayer.  Then he wrote about finding the sacred through simple observation.  Trees of green, skies of blue, *the dark sacred night*.
 
