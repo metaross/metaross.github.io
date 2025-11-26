@@ -18,11 +18,6 @@ theme = 'hugo-book'
   url = "/about/"
   weight = 1
 
-[[menu.after]]
-  name = "GitHub"
-  url = "https://github.com/metaross"
-  weight = 1
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
