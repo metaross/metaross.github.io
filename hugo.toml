@@ -10,6 +10,7 @@ theme = 'hugo-book'
   BookSearch = true
   BookComments = false
   BookSection = '*'
+  BookFavicon = 'favicon.svg'
   description = "Builder of AI things"
 
 [menu]
