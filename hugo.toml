@@ -9,6 +9,7 @@ theme = 'hugo-book'
   BookDateFormat = 'January 2, 2006'
   BookSearch = true
   BookComments = false
+  BookSection = '*'
   description = "Builder of AI things"
 
 [menu]

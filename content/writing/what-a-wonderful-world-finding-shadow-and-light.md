@@ -2,6 +2,7 @@
 title: "What a Wonderful World: Finding Shadow and Light in Louis Armstrong's Masterpiece"
 date: 2025-11-25
 type: docs
+weight: 1
 ---
 
 # What a Wonderful World: Finding Shadow and Light
