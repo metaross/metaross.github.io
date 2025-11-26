@@ -27,29 +27,30 @@
   --highlight: rgba(168, 162, 158, 0.15);
 }
 
-// Hide unnecessary UI elements
+// Hide unnecessary UI elements (using actual Quartz component class names)
+
+// Hide graph view
 .graph,
-#graph-container,
 .graph-outer,
-[id*="graph"] {
+.graph-container,
+.global-graph-container,
+.global-graph-outer,
+.global-graph-icon {
   display: none !important;
 }
 
-// Hide dark mode toggle (sun icon)
+// Hide dark mode toggle (sun/moon icon)
 .darkmode,
-#darkmode-toggle,
-.dark-mode,
-button[aria-label*="dark"],
-button[aria-label*="theme"] {
+.dayIcon,
+.nightIcon {
   display: none !important;
 }
 
-// Hide table of contents (book icon)
+// Hide table of contents
 .toc,
-#toc,
-.table-of-contents,
-button[aria-label*="table"],
-button[aria-label*="contents"] {
+.toc-header,
+.toc-content,
+[id^="toc-"] {
   display: none !important;
 }
 
