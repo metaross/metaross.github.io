@@ -1,30 +1,30 @@
-// Minimal Clean Theme for MetaRoss
-// Inspired by quartz.eilleeenz.com typography + patternlanguage.cc color palette
+// Ultra-Minimal Theme for MetaRoss
+// Inspired by Jacky Zhao's minimal approach (jzhao.xyz)
 // To rollback: just delete this file and push
 
-// Warm, soft color palette (overriding Quartz defaults)
+// Ultra-minimal, high-contrast palette
 :root {
-  // Light mode - warm, soft colors like Pattern Language
-  --light: #fdfbf7;           // Warm off-white background
-  --lightgray: #e8e4dc;       // Soft gray borders
-  --gray: #a8a29e;            // Muted gray
-  --darkgray: #52504e;        // Soft dark text
-  --dark: #292524;            // Warm black for headings
-  --secondary: #78716c;       // Muted brown for secondary text
-  --tertiary: #a8a29e;        // Soft accent
-  --highlight: rgba(168, 162, 158, 0.15);
+  // Light mode - pure, minimal
+  --light: #ffffff;
+  --lightgray: #e0e0e0;
+  --gray: #9e9e9e;
+  --darkgray: #404040;
+  --dark: #1a1a1a;
+  --secondary: #666666;
+  --tertiary: #888888;
+  --highlight: rgba(158, 158, 158, 0.1);
 }
 
 [saved-theme="dark"] {
-  // Dark mode - keep it soft and warm
-  --light: #1c1917;
-  --lightgray: #292524;
-  --gray: #78716c;
-  --darkgray: #d6d3d1;
-  --dark: #fafaf9;
-  --secondary: #a8a29e;
-  --tertiary: #78716c;
-  --highlight: rgba(168, 162, 158, 0.15);
+  // Dark mode - clean inversion
+  --light: #0a0a0a;
+  --lightgray: #1a1a1a;
+  --gray: #666666;
+  --darkgray: #cccccc;
+  --dark: #f0f0f0;
+  --secondary: #999999;
+  --tertiary: #777777;
+  --highlight: rgba(158, 158, 158, 0.1);
 }
 
 // Hide unnecessary UI elements (using actual Quartz component class names)
@@ -54,37 +54,35 @@
   display: none !important;
 }
 
-// Clean, friendly typography (inspired by Eilleen's site)
+// Ultra-minimal typography
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
-  line-height: 1.7;
-  font-size: 17px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
   color: var(--darkgray);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--dark);
+  margin-top: 2em;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
+  margin-top: 0;
   margin-bottom: 0.5em;
-  font-weight: 650;
 }
 
 h2 {
-  font-size: 1.5em;
-  margin-top: 1.8em;
-  font-weight: 600;
+  font-size: 1.4em;
 }
 
 h3 {
-  font-size: 1.2em;
-  margin-top: 1.5em;
+  font-size: 1.1em;
 }
 
 // Cleaner page layout
@@ -99,21 +97,14 @@ h3 {
   border: none;
 }
 
-// Clean, subtle links
+// Ultra-minimal links (Jacky's style)
 a {
   color: var(--dark);
   text-decoration: none;
-  border-bottom: 1px solid var(--gray);
-  transition: all 0.2s ease;
 
   &:hover {
-    border-bottom-color: var(--dark);
+    opacity: 0.6;
   }
-}
-
-// Internal links styling
-.internal-link {
-  color: var(--dark);
 }
 
 // Remove excessive padding
@@ -137,6 +128,16 @@ footer {
   margin-top: 4em;
   padding-top: 2em;
   border-top: 1px solid var(--lightgray);
-  font-size: 0.9em;
-  opacity: 0.6;
+  font-size: 0.85em;
+  color: var(--gray);
+}
+
+// Build timestamp styling
+.build-info {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid var(--lightgray);
+  font-size: 0.75em;
+  color: var(--gray);
+  font-family: monospace;
 }

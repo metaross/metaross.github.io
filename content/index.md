@@ -18,3 +18,7 @@ I'm fascinated by how we can build systems that amplify human capability without
 ---
 
 This site is where I share notes, thoughts, and things I'm learning.
+
+<div class="build-info">
+Built: BUILD_TIMESTAMP_PLACEHOLDER
+</div>

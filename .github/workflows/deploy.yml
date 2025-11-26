@@ -44,6 +44,16 @@ jobs:
             cp quartz.config.ts quartz-build/
           fi
 
+          if [ -d quartz/styles ]; then
+            mkdir -p quartz-build/quartz/styles
+            cp -r quartz/styles/* quartz-build/quartz/styles/
+          fi
+
+      - name: Inject build timestamp
+        run: |
+          BUILD_TIME=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')
+          sed -i "s/BUILD_TIMESTAMP_PLACEHOLDER/$BUILD_TIME/g" quartz-build/content/index.md
+
       - name: Build Quartz site
         run: |
           cd quartz-build
