@@ -1,0 +1,274 @@
+# Publishing Instructions for metaross.github.io
+
+## Repository Information
+- **Repository:** github.com/metaross/metaross.github.io
+- **Branch:** main
+- **Site Generator:** Hugo with hugo-book theme
+- **Deployment:** Automatic via GitHub Actions (builds in ~1 minute after push)
+
+## Publishing Methods
+
+### Method 1: GitHub API (Recommended - No Clone Required)
+
+Use the `gh` CLI to create/update files directly:
+
+```bash
+# Create or update a file
+gh api \
+  --method PUT \
+  /repos/metaross/metaross.github.io/contents/content/writing/FILENAME.md \
+  --field message="Add/Update: FILENAME" \
+  --field content="$(base64 < FILENAME.md)" \
+  --field branch=main
+```
+
+**Important:** The content must be base64-encoded. Use `base64 < file.md` or equivalent.
+
+If updating an existing file, you must include the file's SHA:
+```bash
+# Get the file SHA first
+SHA=$(gh api /repos/metaross/metaross.github.io/contents/content/writing/FILENAME.md --jq '.sha')
+
+# Then update with SHA
+gh api \
+  --method PUT \
+  /repos/metaross/metaross.github.io/contents/content/writing/FILENAME.md \
+  --field message="Update: FILENAME" \
+  --field content="$(base64 < FILENAME.md)" \
+  --field sha="$SHA" \
+  --field branch=main
+```
+
+### Method 2: Git Clone, Commit, Push (Alternative)
+
+```bash
+git clone https://github.com/metaross/metaross.github.io.git
+cd metaross.github.io
+# Add your file to content/writing/
+git add content/writing/your-article.md
+git commit -m "Add: Your Article Title"
+git push origin main
+```
+
+## Content Structure
+
+### Where to Place Files
+
+**Articles/Essays:** `content/writing/FILENAME.md`
+
+Example:
+- `content/writing/its-a-wonderful-world.md`
+- `content/writing/its-a-wonderful-world-notes.md`
+
+**Other content types:**
+- About page: `content/about.md`
+- Homepage: `content/_index.md`
+
+### File Format (Front Matter Required)
+
+Every markdown file MUST have front matter:
+
+```markdown
+---
+title: "Your Article Title"
+date: 2025-01-26
+type: docs
+---
+
+# Your Article Title
+
+Content here...
+```
+
+**Required fields:**
+- `title:` The page title
+- `type: docs` Must be "docs" for hugo-book theme
+
+**Optional fields:**
+- `date:` Publication date (YYYY-MM-DD format)
+- `weight:` For ordering in menus (lower = higher in list)
+
+## Converting Obsidian Wikilinks to Hugo Links
+
+### Wikilink Conversion Rules
+
+Obsidian uses `[[wikilinks]]` which need to be converted to Hugo-compatible markdown links.
+
+**Obsidian Format → Hugo Format:**
+
+1. **Simple wikilink:**
+   - Obsidian: `[[Its a Wonderful World]]`
+   - Hugo: `[Its a Wonderful World](/writing/its-a-wonderful-world/)`
+
+2. **Wikilink with display text:**
+   - Obsidian: `[[Its a Wonderful World|read the article]]`
+   - Hugo: `[read the article](/writing/its-a-wonderful-world/)`
+
+3. **Wikilink to a section:**
+   - Obsidian: `[[Its a Wonderful World#Introduction]]`
+   - Hugo: `[Introduction](/writing/its-a-wonderful-world/#introduction)`
+
+### Conversion Algorithm
+
+```
+1. Extract the target from [[TARGET]] or [[TARGET|DISPLAY]]
+2. If there's a pipe |, the part after is the display text
+   Otherwise, the target is the display text
+3. Convert target to lowercase, replace spaces with hyphens
+4. Determine the path based on content location:
+   - Articles/essays: /writing/TARGET/
+   - Other pages: /TARGET/
+5. Replace the wikilink with: [DISPLAY](/PATH/)
+```
+
+### Example Conversions
+
+**Input (Obsidian):**
+```markdown
+I wrote about this in [[Its a Wonderful World]].
+
+See my [[Its a Wonderful World - Notes|writer's notes]] for more.
+
+The [[About|about page]] has my background.
+```
+
+**Output (Hugo):**
+```markdown
+I wrote about this in [Its a Wonderful World](/writing/its-a-wonderful-world/).
+
+See my [writer's notes](/writing/its-a-wonderful-world-notes/) for more.
+
+The [about page](/about/) has my background.
+```
+
+### Regex Pattern for Conversion
+
+Use this regex to find wikilinks:
+```regex
+\[\[([^\]|]+)(?:\|([^\]]+))?\]\]
+```
+
+**Capture groups:**
+1. Target page name
+2. Display text (if using pipe syntax)
+
+**Replacement logic:**
+```python
+import re
+
+def convert_wikilink(match):
+    target = match.group(1)
+    display = match.group(2) if match.group(2) else target
+
+    # Convert to slug (lowercase, spaces to hyphens)
+    slug = target.lower().replace(' ', '-')
+
+    # Determine path (default to /writing/ for articles)
+    if target.lower() == 'about':
+        path = f'/about/'
+    else:
+        path = f'/writing/{slug}/'
+
+    return f'[{display}]({path})'
+
+# Apply conversion
+content = re.sub(r'\[\[([^\]|]+)(?:\|([^\]]+))?\]\]', convert_wikilink, content)
+```
+
+### Path Determination Rules
+
+**Default:** Articles go in `/writing/SLUG/`
+
+**Special cases:**
+- `[[About]]` → `/about/`
+- `[[Home]]` → `/`
+
+**For cross-references within the same section:**
+If publishing to `content/writing/article-a.md` and it references `[[Article B]]`:
+- The link should be: `[Article B](/writing/article-b/)`
+
+### Handling Sections/Headers
+
+If wikilink includes a section (e.g., `[[Article#Section]]`):
+1. Split on `#`
+2. Convert section to lowercase, replace spaces with hyphens
+3. Result: `[Section](/writing/article/#section)`
+
+## Publishing Workflow
+
+### Step-by-Step Process
+
+1. **Receive the markdown content from Obsidian**
+2. **Convert all wikilinks to Hugo links** (see conversion rules above)
+3. **Ensure front matter exists** (add if missing)
+4. **Determine filename** (lowercase, hyphens, .md extension)
+   - Example: "It's a Wonderful World" → `its-a-wonderful-world.md`
+5. **Publish using GitHub API or git push**
+6. **Verify deployment** (GitHub Actions runs automatically)
+
+### Example Full Workflow
+
+```bash
+# 1. Convert wikilinks in the content
+# (use regex replacement as shown above)
+
+# 2. Ensure front matter
+cat > article.md <<EOF
+---
+title: "It's a Wonderful World"
+date: 2025-01-26
+type: docs
+---
+
+[converted content here]
+EOF
+
+# 3. Publish via GitHub API
+gh api \
+  --method PUT \
+  /repos/metaross/metaross.github.io/contents/content/writing/its-a-wonderful-world.md \
+  --field message="Add: It's a Wonderful World" \
+  --field content="$(base64 < article.md)" \
+  --field branch=main
+
+# 4. Site rebuilds automatically via GitHub Actions
+# Check status: https://github.com/metaross/metaross.github.io/actions
+```
+
+## Important Notes
+
+1. **Base64 encoding:** When using GitHub API, content MUST be base64-encoded
+2. **Existing files:** Must include SHA when updating existing files
+3. **Front matter:** Every file needs YAML front matter with `type: docs`
+4. **File naming:** Use lowercase with hyphens (kebab-case)
+5. **Wikilinks:** MUST be converted - Hugo doesn't understand wikilinks
+6. **Deployment:** Automatic - wait ~1 minute after push
+7. **URL structure:** `/writing/FILENAME/` (no .md extension in URLs)
+
+## Verification
+
+After publishing, verify:
+1. GitHub Actions build succeeds: https://github.com/metaross/metaross.github.io/actions
+2. Article is live: https://metaross.github.io/writing/FILENAME/
+3. Cross-links work correctly
+
+## Troubleshooting
+
+**Build fails:**
+- Check front matter syntax (YAML must be valid)
+- Ensure `type: docs` is present
+- Check for special characters in filenames
+
+**Links broken:**
+- Verify wikilink conversion was applied
+- Check path format: `/writing/article-name/` not `/writing/article-name.md`
+- Ensure lowercase and hyphens in slugs
+
+**File not updating:**
+- Include correct SHA when updating existing files
+- Check branch is `main` not `master`
+
+## Contact
+
+Repository owner: Michael C Ross
+- LinkedIn: https://linkedin.com/in/oneross
