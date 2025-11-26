@@ -17,4 +17,4 @@ I'm fascinated by how we can build systems that amplify human capability without
 
 ---
 
-This site is where I share notes, thoughts, and things I'm learning. It's a work in progress, just like everything else.
+This site is where I share notes, thoughts, and things I'm learning.
