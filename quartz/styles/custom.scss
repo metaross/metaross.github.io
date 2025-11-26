@@ -27,8 +27,29 @@
   --highlight: rgba(168, 162, 158, 0.15);
 }
 
-// Hide graph view (meaningless with few pages)
-.graph {
+// Hide unnecessary UI elements
+.graph,
+#graph-container,
+.graph-outer,
+[id*="graph"] {
+  display: none !important;
+}
+
+// Hide dark mode toggle (sun icon)
+.darkmode,
+#darkmode-toggle,
+.dark-mode,
+button[aria-label*="dark"],
+button[aria-label*="theme"] {
+  display: none !important;
+}
+
+// Hide table of contents (book icon)
+.toc,
+#toc,
+.table-of-contents,
+button[aria-label*="table"],
+button[aria-label*="contents"] {
   display: none !important;
 }
 
