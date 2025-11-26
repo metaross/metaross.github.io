@@ -64,15 +64,16 @@ Example:
 - About page: `content/about.md`
 - Homepage: `content/_index.md`
 
-### File Format (Front Matter Required)
+### File Format (Front Matter + Header Required)
 
-Every markdown file MUST have front matter:
+Every markdown file MUST have BOTH front matter AND a matching H1 header:
 
 ```markdown
 ---
 title: "Your Article Title"
 date: 2025-01-26
 type: docs
+weight: 1
 ---
 
 # Your Article Title
@@ -80,13 +81,41 @@ type: docs
 Content here...
 ```
 
-**Required fields:**
-- `title:` The page title
-- `type: docs` Must be "docs" for hugo-book theme
+**CRITICAL:** The H1 header (`# Your Article Title`) must be present in the content body, not just in the front matter. Hugo Book uses:
+- Front matter `title:` for metadata, sidebar, and page <title>
+- H1 header `#` for the visible page heading
 
-**Optional fields:**
+**Required fields:**
+- `title:` The page title (metadata)
+- `type: docs` Must be "docs" for hugo-book theme
+- `# Title` An H1 header matching the title must be the first line after front matter
+
+**Recommended fields:**
 - `date:` Publication date (YYYY-MM-DD format)
-- `weight:` For ordering in menus (lower = higher in list)
+- `weight:` For ordering in menus (lower number = appears first)
+
+**Example of INCORRECT format (will not show title on page):**
+```markdown
+---
+title: "My Article"
+type: docs
+---
+
+Body text starts here...  ← WRONG: Missing H1 header
+```
+
+**Example of CORRECT format:**
+```markdown
+---
+title: "My Article"
+type: docs
+weight: 1
+---
+
+# My Article  ← CORRECT: H1 header present
+
+Body text starts here...
+```
 
 ## Converting Obsidian Wikilinks to Hugo Links
 

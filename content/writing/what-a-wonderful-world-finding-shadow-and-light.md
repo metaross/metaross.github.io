@@ -4,6 +4,8 @@ date: 2025-11-25
 type: docs
 ---
 
+# What a Wonderful World: Finding Shadow and Light
+
 The November wind off the Hudson cuts through my jacket as I step off the Weehawken ferry, headphones in, the world narrowed to Armstrong's gravelly voice and the rhythm of my footsteps on the pier.  *Trees of green, red roses too…* The morning commuters rush past—I'm walking slower than usual, letting the song unfold.  By the time I reach the office lobby, the final notes are fading: *And I think to myself, what a wonderful world…*
 
 For over a year in 2023 and 2024, I had this as my alarm.  The song was beautiful enough that I'd stay in bed listening to the whole thing before getting up.  Those extra three minutes became a kind of meditation, a deliberate way to begin each day.  During one of these early morning listenings, I heard something I'd missed my whole life: *the dark sacred night*.

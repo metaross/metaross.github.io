@@ -5,6 +5,8 @@ type: docs
 weight: 2
 ---
 
+# Writer's Notes: What a Wonderful World
+
 Behind every polished piece lies a trail of drafts, edits, research rabbit holes, and course corrections. These notes document that journey for "What a Wonderful World - Finding Shadow and Light."
 
 You'll find eighteen phases of revision tracked here—from structural reorganization to copy editing massacres to Hemingway-style radical economy. Comprehensive fact-checking with hyperlinked sources (three errors caught and corrected). Research deep dives into Armstrong's impossible position between FBI surveillance and "Uncle Tom" accusations, the Kasper-Carter white supremacist terror network, Bob Thiele's spiritual jazz background, and 1967's competing paths to childlike wonder (psychedelic vs. observational). The full meta-narrative of human-AI collaboration—what worked, what didn't, and why.
