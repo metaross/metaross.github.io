@@ -1,7 +1,8 @@
 ---
-title: "Writer's Notes: What a Wonderful World Essay"
+title: "Writer's Notes: What a Wonderful World"
 date: 2025-11-25
 type: docs
+weight: 2
 ---
 
 Behind every polished piece lies a trail of drafts, edits, research rabbit holes, and course corrections. These notes document that journey for "What a Wonderful World - Finding Shadow and Light."

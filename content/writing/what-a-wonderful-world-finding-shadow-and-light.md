@@ -1,7 +1,8 @@
 ---
-title: "What a Wonderful World: Finding Shadow and Light in Louis Armstrong's Masterpiece"
+title: "What a Wonderful World: Finding Shadow and Light"
 date: 2025-11-25
 type: docs
+weight: 1
 ---
 
 The November wind off the Hudson cuts through my jacket as I step off the Weehawken ferry, headphones in, the world narrowed to Armstrong's gravelly voice and the rhythm of my footsteps on the pier.  *Trees of green, red roses too…* The morning commuters rush past—I'm walking slower than usual, letting the song unfold.  By the time I reach the office lobby, the final notes are fading: *And I think to myself, what a wonderful world…*
