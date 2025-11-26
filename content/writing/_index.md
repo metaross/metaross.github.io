@@ -2,6 +2,8 @@
 title: "Writing"
 type: docs
 bookFlatSection: true
+bookCollapseSection: false
+weight: 1
 ---
 
 # Writing
