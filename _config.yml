@@ -10,8 +10,8 @@ author:
   name: Michael C Ross
   email: # your-email@example.com (optional)
 
-# Theme - Using Hyde via remote_theme
-remote_theme: poole/hyde
+# Theme - Using Hydeout (modernized Hyde) via remote_theme
+remote_theme: fongandrew/hydeout
 
 # Pagination
 paginate: 5
